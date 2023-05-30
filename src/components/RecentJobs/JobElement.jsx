@@ -1,0 +1,43 @@
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+function JobElement({ job }) {
+  return (
+    <div className="col-xs-12">
+      <Link className="item-block" to={`/jobs/detail/${job._id}`}>
+        <header>
+          <img src={job.imageLogo} alt={job.title} />
+          <div className="hgroup">
+            <h4>{job.title}</h4>
+            <h5>{job.company?.name}</h5>
+          </div>
+          <div className="header-meta">
+            <span className="location">{job.location}</span>
+            <span className={`label ${job.className}`}>{job.type}</span>
+          </div>
+        </header>
+      </Link>
+    </div>
+  );
+}
+
+JobElement.propTypes = {
+  /**
+   * Job object
+   */
+  job: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    imageLogo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    company: PropTypes.shape().isRequired,
+    location: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    className: PropTypes.string,
+  }),
+};
+
+JobElement.defaultProps = {
+  job: {},
+};
+
+export default JobElement;
