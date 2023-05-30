@@ -20,8 +20,8 @@ module.exports = {
       'error',
       {
         arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'never',
+        objects: 'only-multiline',
+        imports: 'only-multiline',
         exports: 'never',
         functions: 'never',
       },
