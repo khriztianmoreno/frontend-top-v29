@@ -1,4 +1,8 @@
-function Input({ label, name, error, ...props }) {
+/* eslint-disable react/jsx-props-no-spreading */
+import PropTypes from 'prop-types';
+
+function Input(props) {
+  const { label, name, error } = props;
   return (
     <>
       <label htmlFor={name}>{label}</label>
@@ -7,5 +11,15 @@ function Input({ label, name, error, ...props }) {
     </>
   );
 }
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  error: PropTypes.string,
+};
+
+Input.defaultProps = {
+  error: null,
+};
 
 export default Input;

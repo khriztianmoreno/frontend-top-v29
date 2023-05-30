@@ -16,11 +16,15 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'no-restricted-exports': 'off',
-    'comma-dangle': {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      functions: 'never',
-      imports: 'never',
-    },
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'never',
+        exports: 'never',
+        functions: 'never',
+      },
+    ],
   },
 };
